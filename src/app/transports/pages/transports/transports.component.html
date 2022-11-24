@@ -10,27 +10,31 @@
 
          <form (submit)="onSubmit()" #transportForm="ngForm">
            <div class="grid grid-cols-2 gap-x-8">
-             <mat-form-field>
+             <mat-form-field appearance="outline">
+               <mat-label>Seats</mat-label>
                <input
+                 type="number"
                  matInput
-                 placeholder="Seats"
+                 placeholder="4"
                  name="seats"
                  required
                  [(ngModel)]="transportData.seats"
                />
              </mat-form-field>
 
-             <mat-form-field>
+             <mat-form-field appearance="outline" >
+               <mat-label>Price</mat-label>
                <input
+                 type="number"
                  matInput
-                 placeholder="Price"
+                 placeholder="40.00"
                  name="price"
                  required
                  [(ngModel)]="transportData.price"
                />
              </mat-form-field>
 
-             <mat-form-field appearance="fill">
+             <mat-form-field appearance="outline">
                <mat-label>Choose an agency</mat-label>
                <mat-select
                  name="agencyId"
@@ -43,7 +47,7 @@
                </mat-select>
              </mat-form-field>
 
-             <mat-form-field appearance="fill">
+             <mat-form-field appearance="outline">
                <mat-label>Departure Date</mat-label>
                <input
                  matInput
@@ -57,7 +61,7 @@
                <mat-datepicker #picker></mat-datepicker>
              </mat-form-field>
 
-             <mat-form-field appearance="fill">
+             <mat-form-field appearance="outline">
                <mat-label>Return Date</mat-label>
                <input
                  matInput
@@ -76,6 +80,7 @@
 
              <mat-radio-group
                name="type"
+               required
                [(ngModel)]="transportData.type"
                class="mt-4"
              >

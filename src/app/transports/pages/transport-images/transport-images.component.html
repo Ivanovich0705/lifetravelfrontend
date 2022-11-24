@@ -7,7 +7,7 @@
 
   <form (submit)="onSubmit()" #transportImagesForm="ngForm">
     <div class="grid grid-cols-2 gap-x-8">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input
           matInput
           placeholder="Path"
@@ -17,7 +17,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Choose a Transport</mat-label>
         <mat-select
           name="transportId"

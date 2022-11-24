@@ -7,7 +7,7 @@
         <h2>{{ isEditMode ? "Edit Accommodation" : "Add new Accommodation" }}</h2>
         <form (submit)="onSubmit()" #accommodationForm="ngForm">
           <div class="grid grid-cols-2 gap-x-8">
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <input
                 matInput
                 placeholder="Location"
@@ -16,7 +16,7 @@
                 [(ngModel)]="accommodationData.location"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <input
                 matInput
                 placeholder="Details"
@@ -25,7 +25,7 @@
                 [(ngModel)]="accommodationData.details"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <input
                 matInput
                 placeholder="Price"
@@ -34,7 +34,7 @@
                 [(ngModel)]="accommodationData.price"
               />
             </mat-form-field>
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
               <mat-label>Choose an agency</mat-label>
               <mat-select name="agencyId" [(ngModel)]="accommodationData.agencyId" required>
                 <mat-option *ngFor="let agency of agencies" [value]="agency.id">

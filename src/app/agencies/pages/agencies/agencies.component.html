@@ -5,29 +5,33 @@
 
   <form (submit)="onSubmit()" #agenciesForm="ngForm">
     <div class="grid grid-cols-2 gap-x-8">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
         <input
           matInput
-          placeholder="Name"
+          placeholder="Lifetravel S.A"
           name="name"
           required
           [(ngModel)]="agencyData.name"
         />
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>RUC</mat-label>
         <input
           type="number"
           matInput
-          placeholder="RUC"
+          placeholder="12345678910"
           name="ruc"
           required
+          maxlength="11"
           [(ngModel)]="agencyData.ruc"
         />
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
         <input
           matInput
-          placeholder="Email"
+          placeholder="lifetravel@travel.com"
           name="email"
           required
           [(ngModel)]="agencyData.email"
