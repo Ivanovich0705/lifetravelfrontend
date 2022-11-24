@@ -34,7 +34,12 @@
                     <mat-card-title>Location: {{accommodation.location}}</mat-card-title>
               <mat-card-subtitle>Price: {{accommodation.price}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image [src]="accommodation.accommodationImages[0].path" alt="Photo" class="w-[300px] h-[500px]">
+            <!-- preguntar si existe elementos en el arreglo -->
+						<div *ngIf="accommodation?.accommodationImages?.length > 0">
+							<div *ngFor="let image of accommodation?.accommodationImages">
+								<img mat-card-image [src]="accommodation?.accommodationImages[0].path" alt="Photo" class="w-[300px] h-[500px]">
+							</div>
+						</div>
             <mat-card-content>
               <h2>Details: </h2>
               <p>
@@ -53,7 +58,11 @@
                 <mat-card-title>Type: {{transport.type}}</mat-card-title>
                 <mat-card-subtitle>Price: {{transport.price}}</mat-card-subtitle>
               </mat-card-header>
-              <img mat-card-image [src]="transport.transportImages[0].path" alt="Photo" class="w-[300px] h-[500px]">
+              <div *ngIf="transport?.transportimages?.length > 0">
+								<div *ngFor="let image of transport?.transportImages">
+									<img mat-card-image [src]="transport?.transportImages[0].path" alt="Photo" class="w-[300px] h-[500px]">
+								</div>
+							</div>
               <mat-card-content>
                 <h2>Details: </h2>
                 <p>
@@ -78,7 +87,12 @@
                 <mat-card-title>Location: {{tour.location}}</mat-card-title>
                 <mat-card-subtitle>Price: {{tour.price}}</mat-card-subtitle>
               </mat-card-header>
-              <img mat-card-image [src]="tour.tourImages[0].path" alt="Photo" class="w-[300px] h-[500px]">
+              <div *ngIf="tour?.tourImages?.length > 0">
+									<!-- RECORRER LAS IMAGENES CON NGFOR -->
+									<div *ngFor="let image of tour?.tourImages">
+										<img mat-card-image [src]="image.path" alt="Photo" class="w-[300px] h-[500px]">
+									 </div>
+							</div>
               <mat-card-content>
                 <h2>Details </h2>
                 <p>
