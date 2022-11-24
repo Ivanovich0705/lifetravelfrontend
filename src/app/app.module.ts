@@ -76,8 +76,8 @@ import {TourImagesComponent} from "./tours/pages/tour-images/tour-images.compone
     TourDialogComponent
 	],
 	imports: [
-		BrowserModule,
-		AppRoutingModule,
+    BrowserModule,
+    AppRoutingModule,
 		BrowserAnimationsModule,
 		HttpClientModule,
 		FormsModule,

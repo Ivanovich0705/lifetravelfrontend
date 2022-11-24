@@ -4,7 +4,7 @@
 
   <form (submit)="onSubmit()" #planForm="ngForm">
     <div class="grid grid-cols-2 gap-x-8">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input
           matInput
           placeholder="Name"
@@ -14,7 +14,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input
           matInput
           placeholder="Description"
@@ -24,7 +24,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input
           matInput
           type="text"
@@ -35,7 +35,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input
           matInput
           placeholder="Capacity (people)"
@@ -45,7 +45,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input
           matInput
           placeholder="Thumbnail"
@@ -55,7 +55,7 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Choose an agency</mat-label>
           <mat-select name="agencyId" [(ngModel)]="planData.agencyId" required>
             <mat-option *ngFor="let agency of agencies" [value]="agency.id">
@@ -64,7 +64,7 @@
           </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Choose a accomodation</mat-label>
         <mat-select name="accommodationId" [(ngModel)]="planData.accommodationId" required>
           <mat-option *ngFor="let accommodation of accommodations" [value]="accommodation.id">
@@ -73,7 +73,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Choose a transport</mat-label>
         <mat-select name="transportId" [(ngModel)]="planData.transportId" required>
           <mat-option *ngFor="let transport of transports" [value]="transport.id">
@@ -83,7 +83,7 @@
       </mat-form-field>
 
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Choose a tour</mat-label>
         <mat-select name="tourId" [(ngModel)]="planData.tourId" required>
           <mat-option *ngFor="let tour of tours" [value]="tour.id">

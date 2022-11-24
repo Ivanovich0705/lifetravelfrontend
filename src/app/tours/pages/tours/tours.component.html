@@ -9,7 +9,7 @@
         <h2>{{ isEditMode ? "Edit Tour" : "Add new Tour" }}</h2>
         <form (submit)="onSubmit()" #tourForm="ngForm">
           <div class="grid grid-cols-2 gap-x-8">
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <input
                 matInput
                 placeholder="Location"
@@ -18,7 +18,7 @@
                 [(ngModel)]="tourData.location"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <input
                 matInput
                 placeholder="Details"
@@ -27,7 +27,7 @@
                 [(ngModel)]="tourData.details"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <input
                 matInput
                 placeholder="Price"
@@ -36,7 +36,7 @@
                 [(ngModel)]="tourData.price"
               />
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <input
                 matInput
                 placeholder="Meeting Point"
@@ -46,7 +46,7 @@
               />
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
               <mat-label>Choose an agency</mat-label>
               <mat-select name="agencyId" [(ngModel)]="tourData.agencyId" required>
                 <mat-option *ngFor="let agency of agencies" [value]="agency.id">

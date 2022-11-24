@@ -8,6 +8,8 @@ import { TransportsService } from '../../services/transports.service';
 import * as _ from "lodash";
 import * as moment from 'moment';
 import {AgenciesService} from "../../../agencies/services/agencies.service";
+// @ts-ignore
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-transports',
   templateUrl: './transports.component.html',
@@ -85,6 +87,13 @@ export class TransportsComponent implements OnInit, AfterViewInit {
     this.transportsService.create(this.transportData).subscribe((response: any) => {
       this.dataSource.data.push({ ...response });
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
+      this.transportForm.resetForm();
+      Swal.fire({
+        icon: 'success',
+        title: 'Agency added successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
     });
   }
 
@@ -96,22 +105,66 @@ export class TransportsComponent implements OnInit, AfterViewInit {
         }
         return o;
       });
+      Swal.fire({
+        icon: 'success',
+        title: 'Transport updated successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
     });
   }
 
+  validateSeats(seats: string){
+     // validar que sea un numero
+      if(Number(seats) < 0)
+        return false;
+      return true;
+  }
+
+  validatePrice(price: number | string){
+     // validar que sea un numero
+      if(Number(price) < 0)
+        return false;
+      return true;
+  }
+
   onSubmit() {
-    if (this.transportForm.form.valid) {
+
+    const price = this.transportData.price;
+    const seats = this.transportData.seats;
+
+    if(!this.transportForm.form.valid){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill all the fields!',
+      })
+      return;
+    }
+    else if(!this.validateSeats(seats)){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Invalid seats! Please enter a valid number and must be greater than 0',
+      })
+    }
+    else if(!this.validatePrice(price)){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Invalid price! Please enter a valid number and must be greater than 0',
+      })
+    }
+    else if (this.transportForm.form.valid) {
       console.log('valid');
       if (this.isEditMode) {
         console.log('about to update');
         this.updateTransport();
       } else {
         console.log('about to add');
-        this.addTransport();
+        this.addTransport()
       }
       this.cancelEdit();
-    } else {
-      console.log('Invalid data');
     }
   }
 }
